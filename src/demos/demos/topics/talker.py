@@ -19,7 +19,6 @@ class Talker(Node):
         self.get_logger().info('Publishing: "{0}"'.format(msg.data))
         self.pub.publish(msg)
 
-
 def main(args=None):
     rclpy.init(args=args)
 
