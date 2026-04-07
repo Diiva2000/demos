@@ -6,7 +6,7 @@ from std_msgs.msg import String
 
 class Talker(Node):
     def __init__(self):
-        super().__init__("self")
+        super().__init__("talker")
         self.i = 0
         self.pub = self.create_publisher(String, "chatter", 10)
         timer_period = 1.0
@@ -16,7 +16,7 @@ class Talker(Node):
         msg = String()
         msg.data = "Hello robotics students from 2: {0}".format(self.i)
         self.i += 1
-        self.get_logger().info('Publishing : "{0}"'.format(msg.data))
+        self.get_logger().info('Publishing: "{0}"'.format(msg.data))
         self.pub.publish(msg)
 
 def main(args=None):
