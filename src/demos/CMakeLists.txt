@@ -29,6 +29,8 @@ install(PROGRAMS
   ${PROJECT_NAME}/services/service_client.py
   ${PROJECT_NAME}/services/service_server.py
   ${PROJECT_NAME}/topics/listener.py
+  ${PROJECT_NAME}/topics/listener2.py
+  ${PROJECT_NAME}/topics/listener3.py
   ${PROJECT_NAME}/topics/talker.py
   ${PROJECT_NAME}/topics/talker2.py
   ${PROJECT_NAME}/parameters/param_talker.py
