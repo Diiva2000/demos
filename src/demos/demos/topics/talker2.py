@@ -3,6 +3,8 @@ import rclpy
 from rclpy.executors import ExternalShutdownException
 from rclpy.node import Node
 from std_msgs.msg import String
+import random 
+import string 
 
 class Talker(Node):
     def __init__(self):
@@ -14,9 +16,10 @@ class Talker(Node):
 
     def timer_callback(self):
         msg = String()
-        msg.data = "Hello robotics students 2: {0}".format(self.i)
-        self.i += 1
-        self.get_logger().info('Publishing: "{0}"'.format(msg.data))
+        msg.data = "{0}".format(self.i)
+        
+        self.i = random.choice(string.ascii_letters)
+        self.get_logger().info(f'Publishing: {format(msg.data)}')
         self.pub.publish(msg)
 
 
