@@ -23,7 +23,7 @@ class Talker(Node):
         
         self.get_logger().info(f'Publishing: {format(msg.data)}')
         self.pub.publish(msg)
-
+#iuewgh
 
 def main(args=None):
     rclpy.init(args=args)
