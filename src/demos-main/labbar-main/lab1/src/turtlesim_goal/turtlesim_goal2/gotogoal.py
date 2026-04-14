@@ -156,8 +156,22 @@ def main():
 
             if choice == "1":
                 try:
-                    x = float(input("X: "))
+                    ansX = 0
+                    while(ansX == 1):
+                        x = float(input("X (0-11): "))
+                        if 11 < x:
+                            print("För stort tal prova igen:")
+                        elif 0 > x: 
+                            print("För litet tal prova igen:")
+                    
                     y = float(input("Y: "))
+                    ansY = 0
+                    while(ansY == 1):
+                        x = float(input("X (0-11): "))
+                        if 11 < y:
+                            print("För stort tal prova igen:")
+                        elif 0 > y: 
+                            print("För litet tal prova igen:")
 
                     # Set the goal and start moving
                     turtlebot.get_logger().info(f"Moving to: x={x}, y={y}")
