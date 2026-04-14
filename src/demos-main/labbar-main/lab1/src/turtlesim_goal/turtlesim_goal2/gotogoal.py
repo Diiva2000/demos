@@ -6,23 +6,25 @@ from rclpy.node import Node
 from turtlesim.msg import Pose
 from math import sqrt, atan2, pi
 # FIXME: Missing Twist msg type
-from geometry_msgs import Twist
+from geometry_msgs.msg import Twist
 
 class TurtleBot(Node):
     def __init__(self):
         super().__init__("turtlesim_goal")
 
         # FIXME: Publisher for velocity commands
-        self.velocity_publisher = self.create_publisher(Twist, "/turtle1/pose", 10)
+
+        self.velocity_publisher = self.create_publisher(Twist, "/turtle1/cmd_vel", 10)
+
         # FIXME: Subscriber for turtle's position
         self.pose_subscriber = self.create_subscription(
-            Pose, "/turtle1/cmd_vel", self.update_pose, 10
+            Pose, "/turtle1/pose", self.update_pose, 10
         )
 
         # Movement parameters
         self.max_linear_speed = 1.5
         self.min_linear_speed = 0.3
-        self.angular_speed_factor = 4.0
+        self.angular_speed_factor = 2.0
 
         # Setup control timer (10Hz)
         self.timer = self.create_timer(0.1, self.controller_callback)
@@ -31,7 +33,7 @@ class TurtleBot(Node):
         self.pose = Pose()
         self.goal_pose = Pose()
         self.moving_to_goal = False
-        self.distance_tolerance = 0.5
+        self.distance_tolerance = 0.1
 
         # For position logging
         self.last_log_time = 0.0
