@@ -44,8 +44,8 @@ class TurtleBot(Node):
         """Distance between current position and goal"""
         # FIXME: Mathematical Error in Distance Calculation
         return sqrt(
-            (self.goal_pose.x + self.pose.x) ** 2
-            + (self.goal_pose.y + self.pose.y) ** 2
+            (self.goal_pose.x - self.pose.x) ** 2
+            + (self.goal_pose.y - self.pose.y) ** 2
         )
 
     def calculate_linear_velocity(self):
