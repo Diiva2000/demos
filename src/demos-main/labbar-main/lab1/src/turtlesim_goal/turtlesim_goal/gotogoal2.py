@@ -175,7 +175,6 @@ def main():
                             print("För litet tal prova igen:")
                         else:   
                             ansY = 1
-
                     # Set the goal and start moving
                     turtlebot.get_logger().info(f"Moving to: x={x}, y={y}")
                     turtlebot.goal_pose.x = x
